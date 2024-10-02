@@ -1,20 +1,12 @@
 ﻿using Kata.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Kata.Domain.Repositories
-{
-    public interface IClanRepository
-    {
+namespace Kata.Domain.Repositories {
+    public interface IClanRepository {
         Task<IEnumerable<Clan>> GetAllClansAsync();
         Task<Clan?> GetClanByNameAsync(string name);
-        Task<Clan?> GetArmyByNameClanAsync(string name);
-        Task AddArmyAsync(string nameClan,Army army);
-        Task UpdateArmyAsync(string nameClan,string armyName, Army army);
-
-        Task DeleteArmyAsync(string nameClan, string armyName);
+        Task<Army?> GetArmyByClanNameAsync(string name);
+        Task AddArmyAsync(string clanName, Army army);
+        Task UpdateArmyAsync(string clanName, string armyName, Army army);
+        Task DeleteArmyAsync(string clanName, string armyName);
     }
 }
